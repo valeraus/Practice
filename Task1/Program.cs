@@ -22,7 +22,7 @@ namespace Task1
                 Console.WriteLine($"{string.Join("\n", uniqueWords)}");
             }
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
