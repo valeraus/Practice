@@ -1,0 +1,14 @@
+﻿@model List<AuthorModel>
+
+<div class="main">
+    <button v-on:click="ShowAuthors()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Автори</button>
+    <button v-on:click="ShowGenres()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Жанри</button>
+</div>
+<div>
+    <h1>Список авторів</h1>
+    <partial name="_TableAuthors"/>
+</div>
+
+
+<button v-on:click="showEditAuthorModal = true" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Додати автора</button>
+    <partial name="_Form"/>

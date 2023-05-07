@@ -24,7 +24,7 @@ namespace Task2
             return uniqueArray;
         }
 
-        static int[] RemoveDuplicatesSorted(int[] inputArray)
+        static int[] RemoveDuplicatesNotSorted(int[] inputArray)
         {
             LinkedList<int> linkedList = new LinkedList<int>();
 
@@ -48,12 +48,13 @@ namespace Task2
         }
         static void Main(string[] args)
         {
+            //remove duplicates from a sorted
             int[] sortedArray = { 1, 2, 3, 4, 4, 56 };
             int[] uniqueArray = RemoveDuplicates(sortedArray);
             Console.WriteLine(string.Join(", ", uniqueArray));
-
+            //remove duplicates from not a sorted
             int[] inputArray = { 4, 1, 3, 4, 4, 56 };
-            int[] uniqueArray2 = RemoveDuplicatesSorted(inputArray);
+            int[] uniqueArray2 = RemoveDuplicatesNotSorted(inputArray);
             Console.WriteLine(string.Join(", ", uniqueArray2));
 
             Console.ReadKey();

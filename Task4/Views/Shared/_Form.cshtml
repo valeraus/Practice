@@ -1,0 +1,104 @@
+﻿<div class="modal fade" id="editAuthor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editAuthorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editAuthorLabel">Додати книгу</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" v-if="changeAuthor !=null">
+                    <label for="lastName">Прізвище:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required v-model="changeAuthor.lastName">
+                    <label for="firstName">Ім'я:</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required v-model="changeAuthor.firstName">
+                    <label for="patronymicName">По батькові:</label>
+                    <input type="text" class="form-control" id="patronymicName" name="patronymicName" required v-model="changeAuthor.patronymicName">
+
+                    <div v-for="book in changeAuthor.books">
+                        <label for="book-title">Назва книги:</label>
+                        <input type="text" class="form-control" id="book-title" v-model="book.title">
+                    </div>
+
+                    <br />
+                    <label for="book-genre">Жанр:</label>
+                    <select class="form-control" id="book-genre" required>
+                        @*як передати сюди список?*@
+                        <option value="" selected disabled>Вибір жанру</option>
+                        <option value="Romantics">Романтичні</option>
+                        <option value="Detectives">Детективи</option>
+                        <option value="Poems">Поеми</option>
+                        <option value="Historic">Історичні</option>
+                        <option value="Fantasy">Фантастика</option>
+                    </select>
+                    <label for="book-pages">Кількість сторінок:</label>
+                    <input type="number" class="form-control" id="book-pages" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="SaveAuthor()">Зберегти</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="deleteAuthor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteAuthorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteAuthorLabel">Видалення</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Ви дійсно хочете видалити автора: 
+                <p v-if="changeAuthor" style="display: inline"> {{changeAuthor.lastName}} {{changeAuthor.firstName[0]}}.{{changeAuthor.patronymicName[0]}}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+                <button v-on:click="DeleteAuthor()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Видалити</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="previewAuthor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="previewAuthorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="previewAuthorLabel">Додати книгу</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" v-if="changeAuthor !=null">
+                    <label for="lastName">Прізвище:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" disabled v-model="changeAuthor.lastName">
+                    <label for="firstName">Ім'я:</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" disabled v-model="changeAuthor.firstName">
+                    <label for="patronymicName">По батькові:</label>
+                    <input type="text" class="form-control" id="patronymicName" name="patronymicName" disabled v-model="changeAuthor.patronymicName">
+                    <div v-for="book in changeAuthor.books">
+                        <label for="book-title">Назва книги:</label>
+                        <input type="text" class="form-control" id="book-title" disabled v-model="book.title">
+                    </div>
+                    <br />
+                    <label for="book-genre">Жанр:</label>
+                    <select class="form-control" id="book-genre" disabled>
+                        @*як передати сюди список?*@
+                        <option value="" selected disabled>Вибір жанру</option>
+                        <option value="Romantics">Романтичні</option>
+                        <option value="Detectives">Детективи</option>
+                        <option value="Poems">Поеми</option>
+                        <option value="Historic">Історичні</option>
+                        <option value="Fantasy">Фантастика</option>
+                    </select>
+                    <label for="book-pages">Кількість сторінок:</label>
+                    <input type="number" class="form-control" id="book-pages" disabled>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model List<AuthorModel>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Прізвище</th>
+            <th>Дата народження</th>
+            <th>Список книг</th>
+            <th>Редагування</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr v-for="(item,index) in authors">
+            <td>{{item.lastName}} {{item.firstName[0]}}.{{item.patronymicName[0]}}.</td>
+            <td>{{ToDate(item.dateOfBirth)}}</td>
+            <td>{{item.books.length}}</td>
+            <td>
+                <button v-on:click="ChoseAuthor(index)" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editAuthor">Редагувати</button>
+                <button v-on:click="ChoseAuthor(index)" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteAuthor">Видалити</button>
+                <button v-on:click="ChoseAuthor(index)" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#previewAuthor">Деталі</button>
+
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
