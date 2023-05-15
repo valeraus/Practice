@@ -11,5 +11,9 @@ namespace Task4.Models
         public DateTime DateOfBirth { get; set; }
         public List<BookModel> Books { get; set; }
 
+        public AuthorModel()
+        {
+            Books = new List<BookModel>();
+        }
     }
 }

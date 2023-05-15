@@ -1,0 +1,37 @@
+﻿
+<div class="row">
+    <div class="col-xxl-3 col-lg-3">
+        <strong>Жанр</strong>
+    </div>
+    <div class="col-xxl-4 col-lg-3">
+        <strong>Назва книги</strong>
+    </div>
+    <div class="col-xxl-1 col-lg-3">
+        <strong>Кількість сторінок</strong>
+    </div>
+    <div class="col-xxl-4 col-lg-3">
+        <strong>Автор</strong>
+    </div>
+</div>
+
+
+<div class="row book-line row-border" v-for="genre in genres">
+    <div class="col-xxl-3 col-lg-3">
+        <p>{{ genre.name }}</p>
+    </div>
+    <div class="col-xxl-4 col-lg-3">
+        <div v-for="book in genre.books">
+            <p>{{ book.title }}</p>
+        </div>
+    </div>
+    <div class="col-xxl-1 col-lg-3">
+        <div v-for="book in genre.books">
+            <p>{{ book.numberOfPages }}</p>
+        </div>
+    </div>
+    <div class="col-xxl-4 col-lg-3">
+        <div v-for="author in genre.authors">
+            <p>{{ author.lastName }}</p>
+        </div>
+    </div>
+</div>

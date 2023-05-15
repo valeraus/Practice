@@ -1,29 +1,38 @@
 ﻿@model List<AuthorModel>
+<div class="row">
+    <div class="col-xxl-5 col-lg-4">
+        <strong>Прізвище</strong>
+    </div>
+    <div class="col-xxl-2 col-lg-2">
+        <strong>Дата народження</strong>
+    </div>
+    <div class="col-xxl-2 col-lg-2">
+        <strong>Список книг</strong>
+    </div>
+    <div class="col-xxl-1 col-lg-2">
+        <strong>Редагування</strong>
+    </div>    
+    <div class="col-xxl-2 col-lg-2 d-flex justify-content-end">
+        <button v-on:click="InitAuthor()" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editAuthor">Додати автора</button>
+    </div>
+</div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Прізвище</th>
-            <th>Дата народження</th>
-            <th>Список книг</th>
-            <th>Редагування</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="row book-line row-border" v-for="(item, index) in authors">
+    <div class="col-xxl-5 col-lg-4">
+        {{item.lastName}} {{item.firstName[0]}}.{{item.patronymicName[0]}}.
+    </div>
+    <div class="col-xxl-2 col-lg-2">
+        {{ToDate(item.dateOfBirth)}}
+    </div>
+    <div class="col-xxl-2 col-lg-2">
+        {{item.books.length}}
+    </div>
+    <div class="col-xxl-3 col-lg-4 d-flex">
+        <button v-on:click="ChoseAuthor(index)" class="btn btn-secondary btn-space" data-bs-toggle="modal" data-bs-target="#editAuthor">Редагувати</button>
+        <button v-on:click="ChoseAuthor(index)" class="btn btn-secondary btn-space" data-bs-toggle="modal" data-bs-target="#deleteAuthor">Видалити</button>
+        <button v-on:click="ChoseAuthor(index)" class="btn btn-secondary btn-space" data-bs-toggle="modal" data-bs-target="#previewAuthor">Деталі</button>
+    </div>
+</div>
 
-        <tr v-for="(item,index) in authors">
-            <td>{{item.lastName}} {{item.firstName[0]}}.{{item.patronymicName[0]}}.</td>
-            <td>{{ToDate(item.dateOfBirth)}}</td>
-            <td>{{item.books.length}}</td>
-            <td>
-                <button v-on:click="ChoseAuthor(index)" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editAuthor">Редагувати</button>
-                <button v-on:click="ChoseAuthor(index)" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteAuthor">Видалити</button>
-                <button v-on:click="ChoseAuthor(index)" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#previewAuthor">Деталі</button>
-
-            </td>
-        </tr>
-
-    </tbody>
-</table>
 
 

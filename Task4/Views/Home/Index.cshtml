@@ -1,14 +1,24 @@
 ﻿@model List<AuthorModel>
-
-<div class="main">
-    <button v-on:click="ShowAuthors()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Автори</button>
-    <button v-on:click="ShowGenres()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Жанри</button>
+<div class=" container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#authors" type="button" role="tab" aria-controls="authors" aria-selected="true">Автори</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#genres" type="button" role="tab" aria-controls="genres" aria-selected="false">Жанри</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="authors" role="tabpanel" aria-labelledby="authors-tab">
+            <h1>Список авторів</h1>
+            <partial name="_TableAuthors" />
+            
+        </div>
+        <div class="tab-pane fade" id="genres" role="tabpanel" aria-labelledby="genres-tab">
+            <h1>Жанри</h1>
+            <partial name="_TableGenres" />
+            
+        </div>
+    </div>
 </div>
-<div>
-    <h1>Список авторів</h1>
-    <partial name="_TableAuthors"/>
-</div>
-
-
-<button v-on:click="showEditAuthorModal = true" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Додати автора</button>
-    <partial name="_Form"/>
+<partial name="_Form" />

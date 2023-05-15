@@ -1,0 +1,13 @@
+.book-line {
+    margin-top: 20px;
+}
+
+.row-border {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-space {
+    width: 100%;
+    margin: 7px;
+}
